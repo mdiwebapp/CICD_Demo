@@ -19,5 +19,5 @@ jobs:
         run: npm run build
         
       - name: Deploy to IIS
-        run: iisreset %LAPTOP-IR2SI59J% /stop
+        run: Copy-Item C:\actions-runner\_work\CICD_Demo\CICD_Demo\dist\my-first-project/* C:/inetpub/wwwroot/dotnetcore-webapp -Recurse -Force
  
