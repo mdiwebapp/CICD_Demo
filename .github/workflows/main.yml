@@ -19,8 +19,5 @@ jobs:
         run: npm run build
         
       - name: Deploy to IIS
-        run: | 
-            sudo iisreset  /stop
-            sudo Copy-Item C:\actions-runner\_work\CICD_Demo\CICD_Demo\dist/* C:\inetpub\wwwroot\Mersino\mdi-test -Recurse -Force
-            sudo iisreset /start
+        run: iisreset  /stop
  
