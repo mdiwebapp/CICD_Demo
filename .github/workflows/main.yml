@@ -2,7 +2,7 @@ name: CI
 on: [push]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: self-hosted
     steps:
       - name: Checkout
@@ -17,3 +17,10 @@ jobs:
       
       - name:  Build
         run: npm run build
+        
+      - name: Deploy to IIS
+        run: | 
+            iisreset  /stop
+            Copy-Item ./dist/* C:\inetpub\wwwroot\Mersino\mdi-test -Recurse -Force
+            iisreset /start
+ 
