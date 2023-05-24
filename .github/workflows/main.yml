@@ -19,5 +19,5 @@ jobs:
         run: npm run build
         
       - name: Deploy to IIS
-        run: iisreset  /stop
+        run: net stop W3SVC
  
