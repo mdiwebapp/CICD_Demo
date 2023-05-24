@@ -2,8 +2,8 @@ name: CI
 on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -17,3 +17,7 @@ jobs:
       
       - name:  Build
         run: npm run build
+        
+      - name: Deploy to IIS
+        run: Copy-Item C:\actions-runner\_work\CICD_Demo\CICD_Demo\dist\my-first-project/* C:\inetpub\wwwroot\Mersino\mdi-test -Recurse -Force
+ 
