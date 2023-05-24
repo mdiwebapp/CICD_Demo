@@ -21,6 +21,6 @@ jobs:
       - name: Deploy to IIS
         run: | 
             iisreset  /stop
-            Copy-Item ./dist/* C:\inetpub\wwwroot\Mersino\mdi-test -Recurse -Force
+            Copy-Item C:\actions-runner\_work\CICD_Demo\CICD_Demo\dist/* C:\inetpub\wwwroot\Mersino\mdi-test -Recurse -Force
             iisreset /start
  
